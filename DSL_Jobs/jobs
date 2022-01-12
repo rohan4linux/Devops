@@ -1,0 +1,25 @@
+job('My_Maven_Job') {
+description('Maven_DSL_Project')
+
+scm {
+      git('https://github.com/rohan4linux/hello-world.git', 'master', {node  -> node / 'extensions' << '' })
+}
+
+steps {
+
+           maven {
+              
+        mavenInstallation('maven')
+goals('-B -DskipTests clean package')
+}
+
+ maven {
+              
+        mavenInstallation('maven')
+goals('test')
+}
+
+
+}
+
+}
