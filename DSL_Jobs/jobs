@@ -2,24 +2,31 @@ job('My_Maven_Job') {
 description('Maven_DSL_Project')
 
 scm {
-      git('https://github.com/rohan4linux/hello-world.git', 'master', {node  -> node / 'extensions' << '' })
+    git('https://github.com/rohan4linux/hello-world.git', 'master', {node -> node / 'extensions' << '' })
 }
 
 steps {
 
-           maven {
+maven {
               
-        mavenInstallation('maven')
-goals('-B -DskipTests clean package')
+     mavenInstallation('maven')
+     goals('-B -DskipTests clean package')
 }
 
- maven {
+maven {
               
-        mavenInstallation('maven')
-goals('test')
-}
+     mavenInstallation('maven')
+     goals('test')
+      }
 
+shell ('''
+         echo *************RUNNING THE JAR***********************
+         java -jar /home/jenkins/jenkins_slave/workspace/My_Maven_Job/webapp/target/webapp.war
+      
+''')
 
-}
+ }
 
-}
+publishers {
+     archiveArtifacts('webapp/target/webapp.war')
+   }
