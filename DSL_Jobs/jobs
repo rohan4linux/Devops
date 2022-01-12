@@ -30,3 +30,4 @@ shell ('''
 publishers {
      archiveArtifacts('webapp/target/webapp.war')
    }
+}
