@@ -2,7 +2,7 @@ job('My_Maven_Job') {
 description('Maven_DSL_Project')
 
 scm {
-    git('https://github.com/rohan4linux/arsr319-simple-java-maven-app.git', 'master', {node -> node / 'extensions' << '' })
+    git('https://github.com/rohan4linux/simple-java-maven-app.git', 'master', {node -> node / 'extensions' << '' })
 }
 
 steps {
