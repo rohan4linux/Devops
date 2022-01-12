@@ -21,7 +21,7 @@ maven {
 
 shell ('''
          echo *************RUNNING THE JAR***********************
-         java -jar /home/jenkins/jenkins_slave/workspace/My_Maven_Job/webapp/target/webapp.war
+         java -jar /home/jenkins/jenkins_slave/workspace/My_Maven_Job/target/my-app-1.0-SNAPSHOT.jar
       
 ''')
 
